@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%block body %}
+<h1> Songs </h1>
+<h4>
+These are the songs for {{artist}}
+</h4>
+<p>
+<ul type="none">
+{%for song,sid in songs%}
+<div class="list-box">
+<li><a href="/lyrics/{{sid}}">{{song}} </a></li>
+</div>
+{%endfor%}
+</ul>
+</p>
+{%endblock%}
