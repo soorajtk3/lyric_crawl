@@ -7,19 +7,31 @@
     <link rel="icon" href="{{ url_for('static',filename='lyrics.ico') }}" />
     <title>Songlyrics</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static',filename='style/style.css') }}"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
   </head>
   <body>
     <div class="navbar">
       <div class="heading">
-        <h1 class="song">SONG</h1>
-        <h1 class="lyrics">LYRICS</h1>
-        <h4 class="com">.com</h4>
+        <h1 class="song headcol">SONG LYRICS</h1>
+        {%block index%}{%endblock%}
+      
+      
       </div>
     </div>
-    {%block body%}{%endblock%}
+    
+    <div class="row">
+      <div class="col-3"> {%block list%}{%endblock%}</div>
+      <div class="col-3"> {%block details%}{%endblock%}</div>
+      <div class="col-6"> {%block lyrics%}{%endblock%}</div>
+
+    </div>
+
+
+    
   </body>
 </html>

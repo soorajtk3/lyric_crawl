@@ -1,15 +1,17 @@
-{% extends 'base.html' %}
-{%block body %}
+{% extends 'index.html' %}
+{%block details%}
 <h1> Songs </h1>
-<h4>
-These are the songs for {{artist}}
-</h4>
+
 <p>
 <ul type="none">
 {%for song,sid in songs%}
+{%if sid==csong%}
+<li>{{song}}</li>
+{%else%}
 <div class="list-box">
-<li><a href="/lyrics/{{sid}}">{{song}} </a></li>
+<li><a href="/songs/{{artist[0]}}/lyrics/{{sid}}">{{song}} </a></li>
 </div>
+{%endif%}
 {%endfor%}
 </ul>
 </p>

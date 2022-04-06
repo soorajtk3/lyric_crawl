@@ -1,3 +1,4 @@
+from distutils.log import debug
 from flask import Flask, render_template
 import get_data
 app = Flask(__name__)
@@ -12,15 +13,19 @@ def hello():
 @app.route("/songs/<int:aid>")
 def list_all_songs(aid):
     songs = get_data.get_all_songs(aid)
+    artists = get_data.get_all_artist()
     artist = get_data.singer(aid)
-    return render_template("songlist.html", artist=artist[0], songs=songs)
+    return render_template("songlist.html", artist=artist, artists=artists, songs=songs, current=aid)
 
 
-@app.route("/lyrics/<int:sid>")
-def lyrics(sid):
+@app.route("/songs/<int:aid>/lyrics/<int:sid>")
+def lyrics(sid, aid):
     lyrics = get_data.get_lyrics(sid)
-    return render_template("lyrics.html", lyrics=lyrics)
+    songs = get_data.get_all_songs(aid)
+    artists = get_data.get_all_artist()
+    artist = get_data.singer(aid)
+    return render_template("lyrics.html", lyrics=lyrics, artist=artist, artists=artists, songs=songs, current=aid, csong=sid)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

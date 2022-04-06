@@ -29,6 +29,6 @@ def get_lyrics(sid):
 def singer(artistid):
     conn = psycopg2.connect("dbname=Lyrics")
     cur = conn.cursor()
-    cur.execute("select name from artist where artist.id=%s", (artistid,))
+    cur.execute("select id,name from artist where artist.id=%s", (artistid,))
     singer = cur.fetchone()
     return singer

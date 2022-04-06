@@ -1,8 +1,5 @@
-{% extends 'base.html' %} {%block body %}
+{% extends 'songlist.html' %} {%block lyrics %}
 <h1>{{lyrics[1]}}</h1>
 <p><center class="lyrics_para">{{lyrics[0]}}</center></p>
-<div class="btn-div">
-  <button class="action-btn">Prev Song</button>
-  <button class="action-btn">Next Song</button>
-</div>
+
 {%endblock%}
