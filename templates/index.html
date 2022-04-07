@@ -1,11 +1,13 @@
-{% extends 'base.html' %} {%block index%}
+{% extends 'base.html' %} 
+{%block index%}
 
 <h1 class="headcol">Welcome</h1>
 
 <h4>Hi there. Welcome to the Lyrics database. We have the following artists</h4>
-{%endblock%}
-{%block list%}
-<ul type="none">
+<!-- {%endblock%}
+{%block list%} -->
+<h3>Artist</h3>
+<!-- <ul type="none">
   {%for aid,aname in artists%}
 
   {%if aid==current%}
@@ -16,6 +18,7 @@
   
  {%endif%} 
  {%endfor%}
-</ul>
+</ul> -->
+<div class="artist"></div>
 
 {%endblock%}
