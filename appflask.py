@@ -1,7 +1,12 @@
 from distutils.log import debug
 from flask import Flask, render_template, jsonify
 import get_data
+import api
+
+
 app = Flask(__name__)
+
+app.register_blueprint(api.api, url_prefix="/api")
 
 
 @app.route("/")
@@ -31,7 +36,7 @@ def lyrics(sid, aid):
     songs = get_data.get_all_songs(aid)
     singer = get_data.singer(aid)
     artists = get_data.get_all_artist()
-    print(lyrics)
+    # print(lyrics)
     return jsonify(lyrics)
 
 
